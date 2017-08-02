@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>WeatherApp</title>
+
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/main.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+   <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-app="weatherApp" ng-controller="mainCtrl">
+
+   <!--   PRELOADER -->
+   <div id="preloader"></div>
+
+
+   <!--   NAVBAR START -->
+   <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+            <a class="navbar-brand" href="#"><span>Weather</span>App</a>
+         </div>
+         <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+               <li><a href="http://www.tyrka.osobie.net" target="_blank">About me</a></li>
+               <li><a href="mailto:kontakt.tyrka@gmail.com">Contact</a></li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+   <!--   NAVBAR END -->
+
+
+   <!--   HEADER START -->
+   <header class="container-fluid">
+      <div class="slogan">
+         Always great weather forecast!
+      </div>
+   </header>
+   <!--   HEADER END -->
+
+
+
+   <!--   CONTENT START -->
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-12 main-wrapper">
+
+            <!--   predefined cities start  -->
+            <div class="block1" ng-controller="warsawCtrl">
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2>Warsaw</h2>
+                     <img class="pull-right" ng-src="{{ src }}" alt="weather image">
+                  </div>
+                  <p>Country: {{ weather.parent.title }}</p>
+                  <p>Min temp: {{ minTemp }}&deg;C</p>
+                  <p>Max temp: {{ maxTemp }}&deg;C</p>
+                  <p>Air pressure: {{ pressure }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(weather)">More...</button>
+               </div>
+            </div>
+
+            <div class="block2" ng-controller="berlinCtrl">
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2 id="berlin">Berlin</h2>
+                     <img class="pull-right" ng-src="{{ src }}" alt="weather image">
+                  </div>
+                  <p>Country: {{ weather.parent.title }}</p>
+                  <p>Min temp: {{ minTemp }}&deg;C</p>
+                  <p>Max temp: {{ maxTemp }}&deg;C</p>
+                  <p>Air pressure: {{ pressure }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(weather)">More...</button>
+               </div>
+            </div>
+
+            <div class="block3" ng-controller="pragueCtrl">
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2 id="prague">Prague</h2>
+                     <img class="pull-right" ng-src="{{ src }}" alt="weather image">
+                  </div>
+                  <p>Country: {{ weather.parent.title }}</p>
+                  <p>Min temp: {{ minTemp }}&deg;C</p>
+                  <p>Max temp: {{ maxTemp }}&deg;C</p>
+                  <p>Air pressure: {{ pressure }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(weather)">More...</button>
+               </div>
+            </div>
+
+            <div class="block4" ng-controller="budapestCtrl">
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2 id="budapest">Budapest</h2>
+                     <img class="pull-right" ng-src="{{ src }}" alt="weather image">
+                  </div>
+                  <p>Country: {{ weather.parent.title }}</p>
+                  <p>Min temp: {{ minTemp }}&deg;C</p>
+                  <p>Max temp: {{ maxTemp }}&deg;C</p>
+                  <p>Air pressure: {{ pressure }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(weather)">More...</button>
+               </div>
+            </div>
+
+            <div class="block5" ng-controller="kievCtrl">
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2 id="kiev">Kiev</h2>
+                     <img class="pull-right" ng-src="{{ src }}" alt="weather image">
+                  </div>
+                  <p>Country: {{ weather.parent.title }}</p>
+                  <p>Min temp: {{ minTemp }}&deg;C</p>
+                  <p>Max temp: {{ maxTemp }}&deg;C</p>
+                  <p>Air pressure: {{ pressure }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(weather)">More...</button>
+               </div>
+            </div>
+
+            <div class="block6" ng-controller="minskCtrl">
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2 id="minsk">Minsk</h2>
+                     <img class="pull-right" ng-src="{{ src }}" alt="weather image">
+                  </div>
+                  <p>Country: {{ weather.parent.title }}</p>
+                  <p>Min temp: {{ minTemp }}&deg;C</p>
+                  <p>Max temp: {{ maxTemp }}&deg;C</p>
+                  <p>Air pressure: {{ pressure }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(weather)">More...</button>
+               </div>
+            </div>
+
+            <div class="block7" ng-controller="moscowCtrl">
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2 id="moscow">Moscow</h2>
+                     <img class="pull-right" ng-src="{{ src }}" alt="weather image">
+                  </div>
+                  <p>Country: {{ weather.parent.title }}</p>
+                  <p>Min temp: {{ minTemp }}&deg;C</p>
+                  <p>Max temp: {{ maxTemp }}&deg;C</p>
+                  <p>Air pressure: {{ pressure }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(weather)">More...</button>
+               </div>
+            </div>
+            <!--   predefined cities end  -->
+
+           
+            <!--   added cities start  -->
+            <div class="block-added-city" ng-repeat="x in cities" >
+               <div class="content-wrapper">
+                  <div class="header-block">
+                     <h2>{{ x.title }}</h2>
+                     <div class="close-btn" ng-click="removeCity(x)">&times;</div>
+                  </div>
+                  <p>Country: {{ x.parent.title }}</p>
+                  <p>Min temp: {{ (x.consolidated_weather[0].min_temp).toFixed(0) }}&deg;C</p>
+                  <p>Max temp: {{ (x.consolidated_weather[0].max_temp).toFixed(0) }}&deg;C</p>
+                  <p>Air pressure: {{ (x.consolidated_weather[0].air_pressure).toFixed(0) }}hPa</p>
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#weatherModal" ng-click="showCity(x)">More...</button>
+               </div>
+            </div>
+            <!--   added cities end  -->
+
+           
+            <!--   add city block start  -->
+            <div class="block-add-city" ng-mouseleave="hideErrText()">
+               <div class="content-wrapper">
+                  <div class="err-text">
+                     {{ errText }}
+                  </div>
+                  <div class="add-btn">&#43;</div>
+                  <div class="input-wrapper">
+                     <div class="in-input-wrapper">
+                        City:
+                        <select type="text" class="form-control" ng-model="newCity">
+                           <option value="London">London</option>
+                           <option value="Paris">Paris</option>
+                           <option value="Rome">Rome</option>
+                        </select>
+                        <button type="submit" class="btn btn-default" ng-click="addCity()">Show</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--   add city block end  -->
+
+         </div>
+      </div>
+   </div>
+   <!--   CONTENT END -->
+
+
+   <!-- MODAL START -->
+   <div id="weatherModal" class="modal fade" role="dialog" >
+      <div class="modal-dialog modal-lg">
+
+         <!-- Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">&times;</button>
+               <h4 class="modal-title">{{ weather.title }}, {{ weather.parent.title }}</h4>
+            </div>
+            <div class="modal-body">
+               <div class="day" ng-repeat="x in weather.consolidated_weather">
+                  <img ng-src="https://www.metaweather.com/static/img/weather/png/64/{{ x.weather_state_abbr }}.png" alt="weather image">
+                  <p class="date">{{ x.applicable_date }}</p>
+                  <p>Temp. min: {{ (x.min_temp).toFixed(0) }}&deg;C</p>
+                  <p>Temp. max: {{ (x.max_temp).toFixed(0) }}&deg;C</p>
+                  <p>Air pressure: {{ (x.air_pressure).toFixed(0) }}hPa</p>
+                  <p>Wind: {{ (x.wind_speed).toFixed(2) }}km/h</p>
+                  <p>Humidity: {{ x.humidity }}%</p>
+               </div>
+            </div>
+         </div>
+
+      </div>
+   </div>
+   <!-- MODAL END -->
+
+  
+   <!--   FOOTER START-->
+   <footer class="container-fluid">
+      <div class="row">
+         <div class="col-sm-8 col-sm-offset-2 footer-content">
+            <p>About author: <a href="http://www.tyrka.osobie.net" target="_blank">tyrka.osobie.net</a></p>
+            <p>Contact: <a href="mailto:kontakt.tyrka@gmail.com">kontakt.tyrka@gmail.com</a></p>
+            <p>&nbsp;</p>
+            <p>Images: <a href="https://pixabay.com/" target="_blank">pixabay.com</a></p>
+            <p>Weather API: <a href="https://www.metaweather.com/" target="_blank">metaweather.com</a></p>
+         </div>
+      </div>
+   </footer>
+   <!--   FOOTER END-->
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/scripts.js"></script>
+   <script src="js/app.js"></script>
+</body>
+
+</html>
