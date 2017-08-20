@@ -239,6 +239,9 @@ header {
 
 .input-wrapper {
    display: none;
+   input {
+      color: $gray;
+   }
 }
 
 .in-input-wrapper {

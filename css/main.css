@@ -225,6 +225,9 @@ header .slogan {
 .input-wrapper {
   display: none;
 }
+.input-wrapper input {
+  color: #5c5c5c;
+}
 
 .in-input-wrapper {
   position: absolute;
@@ -330,3 +333,5 @@ footer .footer-content {
     font-size: 22px;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
